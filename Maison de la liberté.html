@@ -1,0 +1,370 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maison de la liberté</title>
+    <style>
+        /* Базовые стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        /* Навигация */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+        }
+
+        .logo span {
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 300;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #888;
+        }
+
+        /* Герой секция */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            letter-spacing: 5px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            max-width: 600px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            border: 1px solid #333;
+            color: #333;
+            text-decoration: none;
+            font-weight: 300;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #333;
+            color: #fff;
+        }
+
+        /* O VIPERR */
+        .about {
+            padding: 100px 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+            text-align: center;
+            letter-spacing: 3px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            background: #f0f0f0;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #888;
+        }
+
+        /* ФОТКИ */
+        .services {
+            padding: 100px 2rem;
+            background: #f8f8f8;
+        }
+
+        .services h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+            text-align: center;
+            letter-spacing: 3px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+.service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            font-weight: 300;
+            color: #666;
+        }
+
+        .portfolio {
+            padding: 100px 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .portfolio h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+            text-align: center;
+            letter-spacing: 3px;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-item {
+            background: #f0f0f0;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #888;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+        }
+
+        .contact {
+            padding: 100px 2rem;
+            background: #333;
+            color: #fff;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+            text-align: center;
+            letter-spacing: 3px;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+
+        footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            font-weight: 300;
+        }
+
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="logo">Maison de la liberté</div>
+        <ul class="nav-links">
+            <li><a href="#home">ГЛАВНАЯ</a></li>
+            <li><a href="#about">ЧТО ЭТО</a></li>
+            <li><a href="#services">О ЧЁМ MDL</a></li>
+            <li><a href="#portfolio">ПОЗИЦИИ</a></li>
+            <li><a href="#contact">КОНТАКТЫ</a></li>
+        </ul>
+    </nav>
+
+    <!-- Герой секция -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Maison de la liberté</h1>
+            <p>Современный подход к твоему самовырожению.Cтиль, который говорит о вас.</p> 
+            <a href="#contact" class="cta-button">ЗАКАЗАТЬ</a>
+        </div>
+    </section>
+
+    <!-- О VIPERR -->
+    <section id="about" class="about">
+        <h2>o Maison de la liberté </h2>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('fon2.jpg') no-repeat center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+
+        <div class="about-content">
+            <div class="about-text">
+                <h3 style="color:#FFFFFF;">Maison de la liberté — русскоязычный бренд, основанный в 2026 году.</h3>
+<h3 style="color:#FFFFFF;">Наш бренд родился на стыке двух миров. С одной стороны — безупречная элегантность классики, с её любовью к форме, благородным тканям и вневременному крою. С другой — дерзкая энергия улиц, ценящая комфорт, практичность и отсутствие пафоса.</h3>
+
+            </div>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services" class="services">
+        <h2>O ЧЁМ MDLL</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Тишина громче слов.</h3>
+                <p>Мы отказываемся от диктатуры логотипов. В мире, где каждый сантиметр ткани кричит о бренде, мы выбираем тишину. Наша идея — в отречении от навязчивых символов статуса, чтобы вернуть вас к настоящему: к форме, фактуре и комфорту. Здесь нет места кричащим этикеткам, только вы и качество, которое не нуждается в рекламе.</p>
+            </div>
+            <div class="service-card">
+                <h3>Суть важнее обертки.</h3>
+                <p>Мы создали бренд, который не хочет быть брендом. Вернее, он хочет быть чем-то большим — вашим личным пространством. Мы убрали логотипы, чтобы ничего не отвлекало вас от главного: от того, как вы чувствуете себя в этой одежде. Наша подпись — это безупречный крой и благородство материалов. Все остальное — лишнее. </p>
+            </div>
+            <div class="service-card">
+                <h3>Пустой холст.</h3>
+                <p>Ваша личность не нуждается в чужих ярлыках. С нас — достаточно. Мы создаем идеальный фон для вашей жизни, без логотипов и опознавательных знаков. Эта вещь не будет кричать о том, сколько она стоит или откуда родом. Она просто будет частью вас. Настоящей, цельной, ни на кого не похожей.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Портфолио -->
+    <section id="portfolio" class="portfolio">
+        <h2>ПОЗИЦИИ</h2>
+        <div class="portfolio-grid">
+            <a href="rem.html">
+<img src="3sslka.png" alt="hm" width="300" height="300">>
+</a>
+            <a href="verh.html">
+<img src="1sslka.png" alt="playboicarty" width="300" height="300">>
+</a>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact" class="contact">
+        <h2>КОНТАКТЫ</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <p>+7 908 517 10 38</p>
+                <p>dmitriilucenco.2000@gmail.com</p>
+            </div>
+      
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <p>&copy; 2026 Maison de la liberté. Все права защищены.</p>
+    </footer>
+
+    <script>
+        // Плавная прокрутка для навигации
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Изменение навигации при скролле
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>  
